@@ -1,5 +1,8 @@
 <?php
 	include('header.php');
+	if (strpos($_SESSION['connecte'], '@') == true) {
+		header('Location: index.php');
+	}
 ?>
 
 	</br>
