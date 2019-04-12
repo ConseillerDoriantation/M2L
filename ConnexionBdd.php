@@ -40,9 +40,15 @@
 		// Retour vers la page d'entrée du site
 		
 		if (strpos($Identifiant, '@') == false)
-			 header('Location: accueil_tresorier.php');
+		{
+			$_SESSION['typeIdentifiant'] = ('accueil_tresorier.php');
+			header('Location: accueil_tresorier.php');
+		}
 		else
-			 header('Location: accueil_demandeur.php');
+		{
+			header('Location: accueil_demandeur.php');
+		 	$_SESSION['typeIdentifiant'] = ('accueil_demandeur.php');
+		}
 		
 		ob_end_flush();
 		// On quitte le script courant sans effectuer les éventuelles  instructions qui suivent
