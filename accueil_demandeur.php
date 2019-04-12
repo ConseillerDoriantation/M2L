@@ -1,7 +1,12 @@
 <?php
 	include('header.php');
+	if (strpos($_SESSION['connecte'], '@') == false) {
+		header('Location: index.php');
+	}
 ?>
 
+	</br>
+	</br>	
 <!-- Affichage de la bannière -->
 <div class="accueil_profil">
 	
@@ -35,7 +40,3 @@
 
 <!--juste pour la démo-->
 <a href="pdf_frais.php" style="background-color: #A6AFAE;" class="btn_index">FraisPdf</a>
-
-<?php
-	include("footer.html");
-?>
