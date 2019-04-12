@@ -1,8 +1,10 @@
 <!--Bannière-->
 <?php
-	Session_start();							//Demarrage de la session
-
 	require("ConnexionBddID.php");
+	session_start();
+	if ($_SESSION['ok'] != "oui"){
+		header('Location: index.php');
+	}
 ?>
 
 <!DOCTYPE html>
@@ -21,22 +23,22 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 </head>
-
 <div class="-">
 	<nav class="menu" role="navigation">
 		<div class="inner">
-			 <div class="m-left">
-			 	<h1 class="logo">Maison des Ligues de Lorraine</h1>
-			 </div>
+		
+			<div class="m-left">
+				<h1 class="logo">Maison des Ligues de Lorraine</h1>
+			</div>
 
-			 	<div class="m-right">
-			 		<div class="m-link">
-					 	<p style="color: white">
-					 		Bienvenue <?php if(isset($_SESSION['ok'])){echo $_SESSION['connecte'];}?>
-						<p>
-					</div>
+			<div class="m-right">
+				<div class="m-link">
+					<?php if(isset($_SESSION['ok'])){echo "<a href='".$_SESSION['typeIdentifiant']."' style='color:#FFFFFF ;'>".$_SESSION['connecte']."</a>";}?>
+					<?php if(isset($_SESSION['ok'])){echo "<a href ='deconnexion.php'><img src='deconnexion.png'></a>";}?>
 				</div>
 			</div>
-		</nav>
+			
+		</div>
+	</nav>
 </div>
 <body>
