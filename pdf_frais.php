@@ -112,7 +112,7 @@
 						    <?php
 
 						    	//R&eacutecupère les adh&eacuterents li&eacutes au demandeur
-							    $query = "SELECT * FROM ADHERENTS A, LIEN L WHERE A.NUMERO_LICENCE = L.NUMERO_LICENCE AND MAIL_ADH ='".$_SESSION["connecte"]."'";
+							    $query = "SELECT * FROM ADHERENTS A, LIEN L WHERE A.NUMERO_LICENCE = L.NUMERO_LICENCE AND MAIL_DEM ='".$_SESSION["connecte"]."'";
             					$result=$connexion->query($query);
 
             					while($row=$result->fetch())  
