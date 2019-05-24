@@ -1,5 +1,7 @@
 <?php
 	include('header.php'); 	
+
+	
 ?>
 
 	</br>
@@ -18,7 +20,7 @@
 							</br></br></br>
 						    <label>Je soussigné(e)</label>
 						    </br>
-						    <input type="text" placeholder="Nom"   id="email" name="email" maxlength="60" size="110" class="case" readonly="readonly" Value="<?php ?>" />		
+						    <input type="text" placeholder="Nom"   id="email" name="email" maxlength="60" size="110" class="case" readonly="readonly" Value="<?php $email=$_SESSION['nom']; ?>" />		
 						    </br>
 						    <label>demeurant</label>
 							</br>
