@@ -1,7 +1,16 @@
 <?php
 	include('header.php'); 	
 
-	
+	//On récupère les informations de l'utilisateur connecté
+	$sql = ("SELECT NOM_DEM,PRENOM_DEM,RUE_DEM,CP_DEM,VILLE_DEM FROM DEMANDEURS WHERE MAIL_DEM = '".$_SESSION['connecte']."'");
+	$result = $connexion->query($sql) or die ("Erreur dans la requ&ecircte sql");
+	$ligne = $result->fetch();
+	$nom = $ligne[0];
+	$prenom = $ligne[1];
+	$rue = $ligne[2];
+	$cp= $ligne[3];
+	$ville = $ligne[4];
+
 ?>
 
 	</br>
@@ -20,15 +29,15 @@
 							</br></br></br>
 						    <label>Je soussigné(e)</label>
 						    </br>
-						    <input type="text" placeholder="Nom"   id="email" name="email" maxlength="60" size="110" class="case" readonly="readonly" Value="<?php $email=$_SESSION['nom']; ?>" />		
+						    <input type="text" placeholder="Nom"   id="email" name="email" maxlength="60" size="110" class="case" readonly="readonly" Value="<?php echo $nom.' '. $prenom ?> " />		
 						    </br>
 						    <label>demeurant</label>
 							</br>
-						    <input type="text" placeholder="ex: 12 rue de Marron, 54600 Villers lès Nancy" id="ville" name="ville" maxlength="60" size="110" class="case" />
+						    <input type="text" placeholder="ex: 12 rue de Marron, 54600 Villers lès Nancy" id="ville" name="ville" maxlength="60" size="110" class="case" readonly="readonly" Value="<?php echo $rue.', '. $cp.' '.$ville ?> " />
 						    </br>	
 						    <label>certifie renoncer au remboursement des frais ci-dessous et les laisser à l'association</label>
 						    </br>
-							<input type="text" placeholder="association" id="association" name="association" maxlength="20" size="110" class="case" />
+							<input type="text" placeholder="Association" id="association" name="association" maxlength="20" size="110" class="case" />
 							</br>
 							<label>en tant que don.</label>
 							</br></br></br>
@@ -74,9 +83,9 @@
 						      	
 						</fieldset>
 
-
 			  			<input class="btnvalid" type="submit" id="envoie" name="boutonValider" value="Envoyer" />
 			         	<input class="btnvalid" type="reset" id="annule" name="boutonAnnuler" value="Annuler" />
+			         	<a class="btnvalid" href="javascript:history.go(-1)">Retour</a>
 					</form>
 				</td>
 			</tr>
