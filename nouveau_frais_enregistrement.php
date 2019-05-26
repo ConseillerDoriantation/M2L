@@ -2,7 +2,11 @@
 	include('header.php');
 
 	//Recuperer les valeurs du formulaire
-    $email=$_POST['email'];
+	$sql = ("SELECT MAIL_DEM FROM DEMANDEURS WHERE MAIL_DEM = '".$_SESSION['connecte']."'");
+	$result = $connexion->query($sql) or die ("Erreur dans la requ&ecircte sql");
+	$ligne = $result->fetch();
+	$email = $ligne[0];
+
     $datefrais=$_POST['date'];
     $motif=$_POST['motif'];
     $trajet=$_POST['trajet'];
@@ -13,7 +17,7 @@
 
 
     // Mise en forme de la requête
-	$reqSQL =$connexion->prepare('INSERT INTO lignes_frais(ADRESSE_MAIL,DATEFRAIS,TYPE_MOTIF,TRAJET,KM,COUT_PEAGE,COUT_REPAS,COUT_HEBERGEMENT) VALUES(:email, :datefrais, :motif, :trajet, :KM, :cout_peage, :cout_repas, :cout_hebergement)');
+	$reqSQL =$connexion->prepare('INSERT INTO lignes_frais(ADRESSE_MAIL,DATEFRAIS,TYPE_MOTIF,TRAJET,KM,COUT_PEAGE,COUT_REPAS,COUT_HEBERGEMENT) VALUES(upper(:email), :datefrais, :motif, :trajet, :KM, :cout_peage, :cout_repas, :cout_hebergement)');
 	$reqSQL->execute(array(
 		'email' => $email,
 		'datefrais' => $datefrais,
@@ -30,6 +34,6 @@
 	echo $info;
 
     // Un lien pour le retour vers le formulaire de saisie
-    include("index.php");
+    include("accueil_demandeur.php");
     
 ?>
