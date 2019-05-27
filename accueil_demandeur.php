@@ -5,8 +5,6 @@
 	}
 ?>
 
-	</br>
-	</br>	
 <!-- Affichage de la bannière -->
 <div class="accueil_profil">
 	
