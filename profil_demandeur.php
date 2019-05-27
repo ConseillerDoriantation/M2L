@@ -1,6 +1,4 @@
-<?php
-	session_start();
-	
+<?php	
 	include('header.php');
 	$mail = $_SESSION['connecte'];
 
