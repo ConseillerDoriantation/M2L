@@ -28,12 +28,15 @@
 		'cout_repas' => $cout_repas,
 		'cout_hebergement' => $cout_hebergement
 		));
+?>
 
-	// Affichage d'un message d'information 
-	$info="Votre demande de frais a bien été envoyé.";
-	echo $info;
+<script type="text/javascript">
+   alert('Votre ligne de frais a été enregistré');
+</script>
 
-    // Un lien pour le retour vers le formulaire de saisie
-    include("accueil_demandeur.php");
-    
+<?php
+echo 'Vous allez être redirigé dans 5 secondes';
+sleep(5);
+ 	// Un lien pour le retour vers le formulaire de saisie
+    header('Location: accueil_demandeur.php');
 ?>
