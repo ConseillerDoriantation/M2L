@@ -20,11 +20,11 @@
 
 <div class="accueil_frais">
 	<br>
-	<h1>Nouvelle demande de frais </h1>
+	<h1>Nouvelle ligne de frais </h1>
 	</br>
 	<h4>Cette rubrique vous permet de rédiger une nouvelle note de frais </br>
 	en remplissant les informations demandées. </h4>
-		<a href="nouveau_frais.php" style="background-color: #A6AFAE;" class="btn_index">Nouveau Frais</a>
+	<a href="nouveau_frais.php" style="background-color: #A6AFAE;" class="btn_index">Nouveau Frais</a>
 </div>
 
 				
@@ -35,8 +35,15 @@
 	<h4>Cette rubrique vous permet de consulter les notes de frais </br>
 	que vous avez envoyées</h4>
 	<a href="liste_frais.php" class="btn_index">Consulter Frais</a>
-
 </div>
 
-<!--juste pour la démo-->
-<a href="pdf_frais.php" style="background-color: #A6AFAE;" class="btn_index">FraisPdf</a>
+<div class="accueil_frais">
+	</br></br>
+	<h1>Demande de frais </h1>
+	<br>
+	<h4>Cette rubrique vous permet de valider vos lignes de frais </br>
+	avec la possibilité d'imprimer le formulaire</h4>
+	<a href="pdf_frais.php" style="background-color: #A6AFAE;" class="btn_index">Demande de frais</a>
+</div>
+
+<?php include("footer.html");
