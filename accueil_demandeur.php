@@ -46,4 +46,4 @@
 	<a href="pdf_frais.php" style="background-color: #A6AFAE;" class="btn_index">Demande de frais</a>
 </div>
 
-<?php include("footer.html");
+<?php include("footer.html"); ?>
