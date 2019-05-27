@@ -1,5 +1,15 @@
 <?php
 	include('header.php'); //Affichage de la bannière
+
+	//On récupère les informations de l'utilisateur connecté
+	$sql = ("SELECT NOM_DEM,PRENOM_DEM,RUE_DEM,CP_DEM,VILLE_DEM FROM DEMANDEURS WHERE MAIL_DEM = '".$_SESSION['connecte']."'");
+	$result = $connexion->query($sql) or die ("Erreur dans la requ&ecircte sql");
+	$ligne = $result->fetch();
+	$nom = $ligne[0];
+	$prenom = $ligne[1];
+	$rue = $ligne[2];
+	$cp= $ligne[3];
+	$ville = $ligne[4];
 ?>
 	</br>
 	</br>	
@@ -19,11 +29,11 @@
 
 						    <label>Je soussign&eacute(e)</label>
 						    </br>
-						    <input type="text" placeholder="Nom"   id="nom" name="nom" maxlength="20" size="90" class="case"/>		
+						    <input type="text" placeholder="Nom"   id="nom" name="nom" maxlength="20" size="90" class="case"readonly="readonly" Value="<?php echo $nom.' '. $prenom ?> " />		
 						    </br>
 						    <label>demeurant</label>
 							</br>
-						    <input type="text" placeholder="rue, cp ville" id="ville" name="ville" maxlength="20" size="90" class="case" />
+						    <input type="text" placeholder="rue, cp ville" id="ville" name="ville" maxlength="20" size="90" class="case" readonly="readonly" Value="<?php echo $rue.', '. $cp.' '.$ville ?> " />
 						    </br>	
 						    <label>certifie renoncer au remboursement des frais ci-dessous et les laisser à l'association</label>
 						    </br>
@@ -92,7 +102,6 @@
 						        </tr>  
 
 							<?php  
-
 								//Calcul du total
 								$total = $total + $total_ligne;
 							}                      
@@ -153,6 +162,9 @@
 						</fieldset>
 
 						<a href="javascript:window.print()"><img src="../../images/click-here-to-print.jpg" alt="print this page" id="print-button" /></a>
+						<input class="btnvalid" type="submit" id="envoie" name="boutonValider" value="Envoyer" />
+			         	<input class="btnvalid" type="reset" id="annule" name="boutonAnnuler" value="Annuler" />
+			         	<a class="btnvalid" href="javascript:history.go(-1)">Retour</a>
 
 					</form>
 				</td>
