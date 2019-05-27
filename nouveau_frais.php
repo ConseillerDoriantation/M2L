@@ -10,7 +10,6 @@
 	$rue = $ligne[2];
 	$cp= $ligne[3];
 	$ville = $ligne[4];
-
 ?>
 
 	</br>
@@ -44,7 +43,7 @@
 
 							<!-- Informations liées à la table lignes_frais-->
 							<label>Date</label></br>
-							<input type="text" placeholder="date" id="date" name="date" maxlength="20" size="110" class="case" />
+							<input type="date" placeholder="date" id="date" name="date" maxlength="20" size="110" class="case" />
 							</br>
 							<label>Motif</label></br>
 
