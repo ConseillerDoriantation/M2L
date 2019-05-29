@@ -21,7 +21,7 @@
 				<td>
 
 					<!--Formulaire d'impression PDF-->
-					<form name="inscription" action="templates/form_enregistrement.php" method ="post" onsubmit="javascript: return verifSaisie();">
+					<form name="inscription" action="pdf_frais_enregistrement.php" method ="post" onsubmit="javascript: return verifSaisie();">
 					</br></br>
 						<fieldset class="separateur"><legend class="legende">Note de frais des b&eacuten&eacutevoles</legend>
 
@@ -35,11 +35,7 @@
 							</br>
 						    <input type="text" placeholder="rue, cp ville" id="ville" name="ville" maxlength="20" size="90" class="case" readonly="readonly" Value="<?php echo $rue.', '. $cp.' '.$ville ?> " />
 						    </br>	
-						    <label>certifie renoncer au remboursement des frais ci-dessous et les laisser à l'association</label>
-						    </br>
-							<input type="text" placeholder="ex: Association, rue - cp Ville" id="association" name="association" maxlength="20" size="90" class="case" />
-							</br>
-							<label>en tant que don.</label>
+						    <label>certifie renoncer au remboursement des frais ci-dessous et les laisser à l'association en tant que don.</label>
 							</br></br></br>
 							
 							<label>Frais d&eacuteplacement</label>
@@ -74,7 +70,7 @@
 	 						<?php
 
 	 							//Execution de la requete
-	 							$query = 'SELECT * FROM lignes_frais WHERE ADRESSE_MAIL = "'.$_SESSION['connecte'].'"ORDER BY DATEFRAIS DESC';
+	 							$query = 'SELECT * FROM lignes_frais WHERE VALIDE = 0 AND ADRESSE_MAIL = "'.$_SESSION['connecte'].'"ORDER BY DATEFRAIS DESC';
             					$result=$connexion->query($query);        
 
             				$total = 0;
@@ -104,6 +100,7 @@
 							<?php  
 								//Calcul du total
 								$total = $total + $total_ligne;
+								$_SESSION['montanttotal'] = $total;
 							}                      
 							?>  
 							        <tr>  
@@ -138,7 +135,7 @@
 
 						    </br>
 						    <label>Montant des dons</label> <!-- Mets la valeur du don souhait&eacute, mais ne doit aps exceder le total-->
-					    	<input type="text" id="lieu" name="lieu" maxlength="20" size="20" style="background-color:lightblue;"/>
+					    	<input type="text" id="montantdon" name="montantdon" maxlength="20" size="20" style="background-color:lightblue;"/>
 						    </br>
 						    <label>Pour b&eacuten&eacuteficier du reçu de dons, cette note de frais doit être accompagn&eacute de toutes les justificatifs correspondants</label>
 							</br>
@@ -146,18 +143,7 @@
 							<label>A </label>
 							<input type="text" id="lieu" name="lieu" maxlength="20" size="20" class="case"/>
 							<label> Le </label>
-							<input type="text" id="date" name="date" maxlength="20" size="20" class="case"/>
-							</br>
-							<label>Signature du b&eacuten&eacutevole</label>
-							<textarea id="signature" name="signature" rows="4" cols="50" class="case"> </textarea>
-						</fieldset>
-
-						<fieldset style="background-color:pink;" class="separateur"><legend class="legende">Partie r&eacuteserv&eacutee à l'association</legend>
-							<label>N° d'ordre Reçu :</label>
-							</br>
-							<label>Remis le :</label>
-							</br>
-							<label>Signature du tr&eacutesorier :</label>
+							<input type="date" placeholder="date" id="date" name="date" maxlength="20" size="110" class="case" />
 							</br>
 						</fieldset>
 
