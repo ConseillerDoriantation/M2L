@@ -158,10 +158,6 @@
 		</table>
 	</div>
 
-<?php
-	//include("footer.html");
-?>
-
 <!-- Impression de la page en pdf -->
 <script src="~/js/jspdf.js"></script>
 <script>
@@ -187,3 +183,5 @@
   WScript.Echo("finished conversion");
  }
  </script>
+</body>
+</html>
