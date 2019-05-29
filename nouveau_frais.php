@@ -34,11 +34,8 @@
 							</br>
 						    <input type="text" placeholder="ex: 12 rue de Marron, 54600 Villers lès Nancy" id="ville" name="ville" maxlength="60" size="110" class="case" readonly="readonly" Value="<?php echo $rue.', '. $cp.' '.$ville ?> " />
 						    </br>	
-						    <label>certifie renoncer au remboursement des frais ci-dessous et les laisser à l'association</label>
-						    </br>
-							<input type="text" placeholder="Association" id="association" name="association" maxlength="20" size="110" class="case" />
-							</br>
-							<label>en tant que don.</label>
+						    <label>certifie renoncer au remboursement des frais ci-dessous et les laisser à l'association en tant que don.
+						    </label>
 							</br></br></br>
 
 							<!-- Informations liées à la table lignes_frais-->
@@ -90,7 +87,5 @@
 			</tr>
 		</table>
 	</div>
-
-<?php
-	include("footer.html");
-?>
+</body>
+</html>
