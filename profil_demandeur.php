@@ -35,29 +35,19 @@
 	<div class="FormdemandeurProfil">
 		<table>
 		<tr>
-			<td><p>Nom</p></td>
-			<td><p>:</p></td>
+			<td><?php echo "Nom " ; ?></td>
+			<td><?php echo ":" ; ?></td>
 			<td><?php echo $nom; ?></td>
 		</tr>
 		<tr>
-			<td><p>Prenom</p></td>
-			<td><p>:</p></td>
+			<td><?php echo "Prenom " ; ?></td>
+			<td><?php echo ":" ; ?></td>
 			<td><?php echo $prenom; ?></td>
 		</tr>
 		<tr>
-			<td><p>Rue</p></td>
-			<td><p>:</p></td>
-			<td><?php echo $rue; ?></td>
-		</tr>
-		<tr>
-			<td><p>CP</p></td>
-			<td><p>:</p></td>
-			<td><?php echo $cp; ?></td>
-		</tr>
-		<tr>
-			<td><p>Ville</p></td>
-			<td><p>:</p></td>
-			<td><?php echo $ville; ?></td>
+			<td><?php echo "Adresse " ; ?></td>
+			<td><?php echo ":" ; ?></td>
+			<td><?php echo $rue, " ", $cp, " ", $ville; ?></td>
 		</tr>
 		</table>
 	</div>
