@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 29 Mai 2019 à 12:36
+-- Généré le :  Mer 29 Mai 2019 à 15:38
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.4.24
 
@@ -60,25 +60,6 @@ INSERT INTO `adherents` (`NUMERO_LICENCE`, `NUM_ADH`, `SEXE_ADH`, `NOM_ADH`, `PR
 -- --------------------------------------------------------
 
 --
--- Structure de la table `archives_frais`
---
-
-CREATE TABLE IF NOT EXISTS `archives_frais` (
-  `ID_ARCHIVE` bigint(4) NOT NULL AUTO_INCREMENT,
-  `ADRESSE_MAIL` varchar(50) NOT NULL,
-  `DATEFRAIS` date NOT NULL,
-  `TYPEMOTIF` int(2) NOT NULL,
-  `TRAJET` varchar(50) NOT NULL,
-  `KM_VALIDE` bigint(4) NOT NULL,
-  `PEAGE_VALIDE` bigint(4) NOT NULL,
-  `REPAS_VALIDE` bigint(4) NOT NULL,
-  `HEBERGEMENT_VALIDE` bigint(4) NOT NULL,
-  PRIMARY KEY (`ID_ARCHIVE`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `clubs`
 --
 
@@ -131,6 +112,28 @@ INSERT INTO `demandeurs` (`MAIL_DEM`, `NOM_DEM`, `PRENOM_DEM`, `RUE_DEM`, `CP_DE
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `demande_frais`
+--
+
+CREATE TABLE IF NOT EXISTS `demande_frais` (
+  `ID_DEMANDE` bigint(4) NOT NULL AUTO_INCREMENT,
+  `MAIL_DEM` varchar(50) NOT NULL,
+  `DATE_DEMANDE` date NOT NULL,
+  `MONTANT_TOTAL` int(5) NOT NULL,
+  `MONTANT_DON` int(5) NOT NULL,
+  PRIMARY KEY (`ID_DEMANDE`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `demande_frais`
+--
+
+INSERT INTO `demande_frais` (`ID_DEMANDE`, `MAIL_DEM`, `DATE_DEMANDE`, `MONTANT_TOTAL`, `MONTANT_DON`) VALUES
+(2, 'JEAN-CHRISTOPHE.BERBER@GMAIL.COM', '2019-05-24', 39, 30);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `lien`
 --
 
@@ -173,15 +176,16 @@ CREATE TABLE IF NOT EXISTS `lignes_frais` (
   `HEBERGEMENT_VALIDE` bigint(4) NOT NULL,
   `VALIDE` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID_LIGNE`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Contenu de la table `lignes_frais`
 --
 
 INSERT INTO `lignes_frais` (`ID_LIGNE`, `ADRESSE_MAIL`, `DATEFRAIS`, `TYPE_MOTIF`, `TRAJET`, `KM`, `COUT_PEAGE`, `COUT_REPAS`, `COUT_HEBERGEMENT`, `KM_VALIDE`, `PEAGE_VALIDE`, `REPAS_VALIDE`, `HEBERGEMENT_VALIDE`, `VALIDE`) VALUES
-(1, 'JEAN-CHRISTOPHE.BERBER@GMAIL.COM', '2019-03-13', 1, 'Perpignan-Toulouse', 12, 12, 12, 12, 0, 0, 0, 0, 0),
-(14, 'JEAN-CHRISTOPHE.BERBER@GMAIL.COM', '2019-05-17', 1, 'Perpignan-Toulouse', 1, 1, 1, 1, 0, 0, 0, 0, 0);
+(1, 'JEAN-CHRISTOPHE.BERBER@GMAIL.COM', '2019-03-13', 1, 'Perpignan-Toulouse', 12, 12, 12, 12, 0, 0, 0, 0, 1),
+(17, 'JEAN-CHRISTOPHE.BERBER@GMAIL.COM', '0000-00-00', 1, 'Perpignan-Toulouse', 12, 12, 12, 12, 0, 0, 0, 0, 1),
+(14, 'JEAN-CHRISTOPHE.BERBER@GMAIL.COM', '2019-05-17', 1, 'Perpignan-Toulouse', 1, 1, 1, 1, 0, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
