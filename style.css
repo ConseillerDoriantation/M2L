@@ -190,21 +190,3 @@ img {	/*Mise en forme du bouton de deconnexion (image)*/
 
 /*				   FIN FRAIS				 */
 /*///////////////////////////////////////////*/
-
-/*///////////////////////////////////////////*/
-/*					FOOTER 					 */
-footer{ /*Mise en forme footer*/
-	background-color: black;
-	width:100%;
-	padding-top:50px;
-	height:50px;
-}
-
-.footext{	/*Mise en forme du texte*/
-	margin-top:-30px;
-	color: #fff;
-	font-weight: 700;
-	text-align: center;
-}
-/*				   FIN FOOTER				 */
-/*///////////////////////////////////////////*/
