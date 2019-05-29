@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 24 Mai 2019 à 10:41
+-- Généré le :  Mer 29 Mai 2019 à 12:36
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.4.24
 
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `demandeurs` (
 --
 
 INSERT INTO `demandeurs` (`MAIL_DEM`, `NOM_DEM`, `PRENOM_DEM`, `RUE_DEM`, `CP_DEM`, `VILLE_DEM`, `NUM_DEM`, `MDP_DEM`) VALUES
-('Jean-Christophe.Berber@gmail.com', 'BERBIER', 'JEAN-CHRISTOPHE', '12, rue de Marron', '54600', 'Villers lès Nancy', 1, 123),
+('Jean-Christophe.Berber@gmail.com', 'BERBER', 'JEAN-CHRISTOPHE', '12, rue de Marron', '54600', 'Villers lès Nancy', 1, 123),
 ('Robert@gmail.com', 'Robert', 'Robert', 'Robert,31 Robert', '31200', 'Toulouse', 0, 123);
 
 -- --------------------------------------------------------
@@ -173,15 +173,15 @@ CREATE TABLE IF NOT EXISTS `lignes_frais` (
   `HEBERGEMENT_VALIDE` bigint(4) NOT NULL,
   `VALIDE` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID_LIGNE`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Contenu de la table `lignes_frais`
 --
 
 INSERT INTO `lignes_frais` (`ID_LIGNE`, `ADRESSE_MAIL`, `DATEFRAIS`, `TYPE_MOTIF`, `TRAJET`, `KM`, `COUT_PEAGE`, `COUT_REPAS`, `COUT_HEBERGEMENT`, `KM_VALIDE`, `PEAGE_VALIDE`, `REPAS_VALIDE`, `HEBERGEMENT_VALIDE`, `VALIDE`) VALUES
-(1, 'JEAN-CHRISTOPHE.BERBER@GMAIL.COM', '2019-03-28', 1, 'Perpignan-Toulouse', 12, 12, 12, 12, 0, 0, 0, 0, 0),
-(2, 'JEAN-CHRISTOPHE.BERBER@GMAIL.COM', '2019-03-28', 3, 'aze', 95, 59, 59, 78, 0, 0, 0, 0, 0);
+(1, 'JEAN-CHRISTOPHE.BERBER@GMAIL.COM', '2019-03-13', 1, 'Perpignan-Toulouse', 12, 12, 12, 12, 0, 0, 0, 0, 0),
+(14, 'JEAN-CHRISTOPHE.BERBER@GMAIL.COM', '2019-05-17', 1, 'Perpignan-Toulouse', 1, 1, 1, 1, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
