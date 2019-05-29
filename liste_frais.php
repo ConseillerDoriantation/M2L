@@ -69,12 +69,9 @@ include('header.php');
                 <td class="tdprod"><?php echo $row['COUT_REPAS']?></td>
                 <td class="tdprod"><?php echo $row['COUT_HEBERGEMENT']?></td>
 
-                <input type="hidden" name="hidden_mail" value="<?php echo $row["ADRESSE_MAIL"]; ?>" /> 
-
-                <td><input type="submit" name="modifier" style="margin-top:5px;" class="btn_modifier" value="Modifier" /> </td> 
             </form>
         </tr>
-
+    </table>
 
     <?php  
         }
@@ -96,3 +93,5 @@ include('header.php');
         echo '</p>';            
     ?>  
                    
+</body>
+</html>
