@@ -1,7 +1,7 @@
 <?php 
 	ob_start();
 // Appel du script de connexion au serveur et à la base de données
-	require("ConnexionBddID.php"); 	
+	require("connexionBddID.php"); 	
 
 // On récupère les données saisies dans le formulaire
 	$Identifiant = $_POST["identifiant"];
