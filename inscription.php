@@ -4,7 +4,7 @@
 
 <div class="inscriptionFond">
 	<div class="inscriptionForm">
-		<form method="post" action="InscriptionBdd.php" name="inscription" onSubmit="return verifChamps()">
+		<form method="post" action="inscriptionBdd.php" name="inscription" onSubmit="return verifChamps()">
 			<table>
 			  <tr>
 					<td><p>Adresse e-mail</p></td>
@@ -49,7 +49,7 @@
 			  <tr>
 					<td></td>
 					<td></td>
-					<td><input type="submit" name="sInscrire" value="Inscription">&nbsp;&nbsp;&nbsp;<a href="Index.php">Retour</td>
+					<td><input type="submit" name="sInscrire" value="Inscription">&nbsp;&nbsp;&nbsp;<a href="index.php">Retour</td>
 			  </tr>
 			</table>
 		</form>
