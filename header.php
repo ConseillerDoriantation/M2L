@@ -1,6 +1,6 @@
 <!--Bannière-->
 <?php
-	require("ConnexionBddID.php");
+	require("connexionBddID.php");
 	session_start();
 	if ($_SESSION['ok'] != "oui"){
 		header('Location: index.php');
