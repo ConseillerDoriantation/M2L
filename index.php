@@ -29,7 +29,7 @@
 <!-- Affichage de la bannière -->
 <div class="connexionFond">
 	<div class="connexionForm">
-	<form method="post" action="ConnexionBdd.php" name="identification" onSubmit="return verifChamps()">
+	<form method="post" action="connexionBdd.php" name="identification" onSubmit="return verifChamps()">
 
 		<table class="sansBordure">
 		  <tr>
