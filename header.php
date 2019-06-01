@@ -23,19 +23,16 @@
 	{
 	?>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Maison des ligues de Lorraine</a>
+		<a class="navbar-brand" href="demandeur.php">Accueil</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarText">
 			<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href="accueil_demandeur.php">Accueil <span class="sr-only">(current)</span></a>
-			</li>
 			</ul>
 			<span class="navbar-text">
-			<?php if(isset($_SESSION['ok'])){echo "<a href='".$_SESSION['typeIdentifiant']."'>".$_SESSION['connecte']."</a>";} ?>
-			<a><i class="fas fa-sign-out-alt"></i></a>
+			<a href="profil_demandeur.php" class="mr-2"><?php echo $_SESSION['connecte'] ?></a>
+			<a href="deconnexion.php"><i class="fas fa-sign-out-alt"></i></a>
 			</span>
 		</div>
 	</nav>
