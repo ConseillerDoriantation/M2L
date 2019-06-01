@@ -2,13 +2,13 @@
 <?php
 	require("connexionBddID.php");
 	session_start();
-	if ($_SESSION['ok'] != "oui"){
+	if ($_SESSION['ok'] != "oui" && basename($_SERVER['PHP_SELF']) != "index.php" && basename($_SERVER['PHP_SELF']) != "inscription.php"){
 		header('Location: index.php');
 	}
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang='fr'>
 <head>
 	<title> M2L </title>
 
@@ -17,25 +17,29 @@
 	<link rel="stylesheet" media="screen" type="text/css" title="Design" href="style.css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
 </head>
-	
-<div class="-">
-	<nav class="menu" role="navigation">
-		<div class="inner">
-		
-			<div class="m-left">
-				<h1 class="logo">Maison des Ligues de Lorraine</h1>
-			</div>
-
-			<div class="m-right">
-				<div class="m-link">
-					<?php if(isset($_SESSION['ok'])){echo "<a href='".$_SESSION['typeIdentifiant']."' style='color:#FFFFFF ;'>".$_SESSION['connecte']."</a>";}?>
-					<?php if(isset($_SESSION['ok'])){echo "<a href ='deconnexion.php'><img src='deconnexion.png'></a>";}?>
-				</div>
-			</div>
-			
+<?php
+	if (basename($_SERVER['PHP_SELF']) != "index.php" && basename($_SERVER['PHP_SELF']) != "inscription.php")
+	{
+	?>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Maison des ligues de Lorraine</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="accueil_demandeur.php">Accueil <span class="sr-only">(current)</span></a>
+			</li>
+			</ul>
+			<span class="navbar-text">
+			<?php if(isset($_SESSION['ok'])){echo "<a href='".$_SESSION['typeIdentifiant']."'>".$_SESSION['connecte']."</a>";} ?>
+			<a><i class="fas fa-sign-out-alt"></i></a>
+			</span>
 		</div>
 	</nav>
-</div>
+	<?php
+	}
+	?>
 <body>
