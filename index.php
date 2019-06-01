@@ -1,17 +1,7 @@
 <?php
 	$_SESSION['connecte'] = "";
+	include_once('header.php');
 ?>
-
-<head>
-	<title> M2L_CONNEXION </title>
-
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" media="screen" type="text/css" title="Design" href="style.css" />
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-</head>
 
 <script type="text/javascript">
 	function verifChamps()
@@ -23,36 +13,46 @@
 		}
 		return true;
 	}
-
 </script>
 
-<!-- Affichage de la bannière -->
-<div class="connexionFond">
-	<div class="connexionForm">
-	<form method="post" action="connexionBdd.php" name="identification" onSubmit="return verifChamps()">
+<div id="wrapper">
+	<div class="row justify-content-center">
+		<div class="card col col-sm-10 col-md-6 col-lg-5 col-xl-3" style="margin-top : 200px;">
+			<div class="card-body">
+				<h4 class="card-title mb-4">Connexion</h4>
+				<?php
+					if (isset ($_GET['msg']))
+					{
+						if($_GET['msg']==1)
+						{
+				?>
+						<!-- Alerte en cas de création de compte -->
+						<div class="alert alert-success" role="alert" id="alertsuccess" >Votre compte a bien été enregistré !</div>
+				<?php
+						}
+					}
+				?>
+				<div class="form-body">
+					<form method="post" action="connexionBdd.php" name="identification" onSubmit="return verifChamps()">
+						<div class="input-group flex-nowrap">
+							<div class="input-group-prepend">
+								<span class="input-group-text"  style="width : 125px;" id="addon-wrapping">Identifiant</span>
+							</div>
+							<input id="identifiant" name="identifiant" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+						</div>
 
-		<table class="sansBordure">
-		  <tr>
-				<td><p>Identifiant</p></td>
-				<td><p>:</p></td>
-				<td><input type="text" name="identifiant" id="identifiant" size="40" maxlength="50"></td>
-		  </tr>
-		  <tr>
-				<td><p>Mot de passe</p></font></td>
-				<td><p>:</p></td>
-				<td><input type="password" name="mdp" id="mdp" size="40" maxlength="50"></td>
-		  </tr>
-		  <tr>
-				<td></td>
-				<td></td>
-				<td><input type="submit" name="seConnecter" value="Connexion">&nbsp;&nbsp;<a href="inscription.php">Inscription</td>
-		  </tr>
-		</table>
+						<div class="mt-2 input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" style="width : 125px;" id="inputGroup-sizing-default">Mot de passe</span>
+							</div>
+							<input id="mdp" name="mdp" type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+						</div>
 
-	</form>
+						<input class="mr-4 btn btn-info" type="submit" name="seConnecter" Value="Connexion"/>
+						<a class="btn btn-success" href="inscription.php">Inscription</a>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
-
-<?php
-	//include("footer.html");
-?>
+</div> <!-- end wrapper -->
