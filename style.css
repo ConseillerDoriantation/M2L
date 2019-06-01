@@ -11,35 +11,6 @@ body{
 /*///////////////////////////////////////////*/
 
 /*///////////////////////////////////////////*/
-/*				CONNEXION-INSCRIPTION 		 */
-.connexionFond{
-	background-color: #B3C8C6;
-	width:100%;
-	height:300px;
-	text-align: center;
-}
-
-.connexionForm{
-	position : absolute;
-	margin-top : 100px;
-	margin-left : 38%;
-}
-
-.inscriptionFond{
-	background-color: #B3C8C6;
-	width:100%;
-	height : 500px;
-}
-
-.inscriptionForm{
-	margin-top :65px;
-	margin-left : 38%;
-	width:100%;
-}
-/*				FIN CONNEXION				 */
-/*///////////////////////////////////////////*/
-
-/*///////////////////////////////////////////*/
 /*					PROFILS					 */
 .FonddemandeurProfil{
 	background-color: #B3C8C6;
