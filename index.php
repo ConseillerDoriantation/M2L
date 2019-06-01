@@ -45,7 +45,7 @@
 		  <tr>
 				<td></td>
 				<td></td>
-				<td><input type="submit" name="seConnecter" value="Connexion">&nbsp;&nbsp;<a href="Inscription.php">Inscription</td>
+				<td><input type="submit" name="seConnecter" value="Connexion">&nbsp;&nbsp;<a href="inscription.php">Inscription</td>
 		  </tr>
 		</table>
 
