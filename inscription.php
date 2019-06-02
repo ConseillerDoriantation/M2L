@@ -5,6 +5,7 @@
 <div id="wrapper">
 	<div class="row justify-content-center">
 		<div class="card col col-sm-10 col-md-6 col-lg-5 col-xl-3" style="margin-top : 200px;">
+			<!-- Card -->
 			<div class="card-body">
 				<h4 class="card-title mb-4">Inscription</h4>
 				<?php
@@ -19,6 +20,7 @@
 						}
 					}
 				?>
+				<!-- Formulaire -->
 				<div class="inscriptionForm">
 					<form method="post" action="inscriptionBdd.php" name="inscription">
 						<div class="form-row">
@@ -45,14 +47,13 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label>Nom</label>
-								<input type="text" class="form-control" id="nom" name="nom" placeholder="nom" required>
+								<input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
 							</div>
 							<div class="form-group col-md-6">
 								<label>Prenom</label>
 								<input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prenom" required>
 							</div>
 						</div>
-
 
 						<div class="form-group">
 							<label>Adresse</label>
@@ -73,14 +74,13 @@
 						<input class="mr-4 btn btn-info" type="submit" name="sInscrire" Value="Inscription" id="sInscrire" />
 						<a class="btn btn-success" href="index.php">Retour</a>
 					</form>
-				</div>
-			</div>
+				</div> <!-- fin formulaire -->
+			</div><!-- Fin Card -->
 		</div>
 	</div>
 </div> <!-- end wrapper -->
 <script>  
-	// Function to check Whether both passwords 
-	// is same or not. 
+	// Vérifie si les mots de passe sont corrects
 	var alertPwd = document.getElementById("alertPwd");
 	alertPwd.style.display = 'none';
 
@@ -89,6 +89,7 @@
 		var password2 = document.getElementById("mdpConfirm");
 		var subbtn = document.getElementById("sInscrire");
 
+		// Vérifie qu'ils aient au moins 8 caractères
 		if(password1.value != '' && password1.value.length < 8){
 			alertPwd.style.display = 'block';
 			alertPwd.innerHTML = "Le mot de passe doit contenir au moins 8 charactères";
@@ -96,7 +97,7 @@
 			return 0;
 		}
 		
-		// If Not same return False.     
+		// Vérifie qu'ils soient les meme   
 		if(password1.value != '' && password2.value != ''){
 			if (password1.value != password2.value) { 
 				alertPwd.style.display = 'block';
@@ -106,8 +107,7 @@
 			} 
 		}
 		
-
-		// If same return True. 
+		// Si OK, le message reste caché
 		alertPwd.style.display = 'none';
 		subbtn.classList.remove("disabled");
 	} 
