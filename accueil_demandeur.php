@@ -15,7 +15,7 @@
 		<div class="sliberbox">
 				<div id="slider">
 					<div id="box">
-						<img class=\'img1\' src="images/a.jpg">
+						<img class='img1' src="images/a.jpg">
 					</div>
 
 					<label class="prew" onclick="prewImage()">  </label>
@@ -35,7 +35,7 @@
 					}else{
 						i = 1;
 					}
-					slider_content.innerHTML = "<img class=\'img1\' src="+image[i-1]+".jpg >";
+					slider_content.innerHTML = "<img class='img1' src="+image[i-1]+".jpg >";
 				}
 
 				function prewImage(){
@@ -44,7 +44,7 @@
 					}else{
 						i = image.length;
 					}
-					slider_content.innerHTML = "<img class=\'img1\' src="+image[i-1]+".jpg>";
+					slider_content.innerHTML = "<img class='img1' src="+image[i-1]+".jpg>";
 				}
 
 				setInterval(nextImage , 6000);
