@@ -1,7 +1,7 @@
 <?php
 	require("connexionBddID.php");
 	session_start();
-	if (!isset($_SESSION['ok']) || ($_SESSION['ok'] != "oui" && basename($_SERVER['PHP_SELF']) != "index.php" && basename($_SERVER['PHP_SELF']) != "inscription.php")){
+	if (($_SESSION['ok'] != "oui" && basename($_SERVER['PHP_SELF']) != "index.php" && basename($_SERVER['PHP_SELF']) != "inscription.php")){
 		header('Location: index.php');
 	}
 ?>
