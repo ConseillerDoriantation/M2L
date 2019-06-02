@@ -33,7 +33,7 @@
 								<input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de Passe" onchange="checkPassword()" required>
 							</div>
 							<div class="form-group col-md-6">
-								<label>Confirmation mot de passe</label>
+								<label>Confirmation</label>
 								<input type="password" class="form-control" id="mdpConfirm" name="mdpConfirm" placeholder="Mot de Passe" onchange="checkPassword()" required>
 							</div>
 						</div>
