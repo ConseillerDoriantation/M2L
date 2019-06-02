@@ -1,4 +1,3 @@
-<!--Bannière-->
 <?php
 	require("connexionBddID.php");
 	session_start();
@@ -23,6 +22,7 @@
 	if (isset($_SESSION['ok']) && $_SESSION['ok'] = "oui" && basename($_SERVER['PHP_SELF']) != "index.php" && basename($_SERVER['PHP_SELF']) != "inscription.php")
 	{
 	?>
+	<!-- Barre de naviguation -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="accueil_demandeur.php">Accueil</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
