@@ -12,9 +12,6 @@
 	$ville = $ligne[4];
 ?>
 
-	</br>
-	</br>	
-
 <!-- Affichage de la bannière -->
 	<div class="formulaire"> 
 
@@ -61,20 +58,21 @@
 
 
 							</br>
-							<label>Trajet</label></br>
+							<label>Trajet</label>
+							</br>
 							<input type="text" placeholder="Trajet " id="trajet" name="trajet" maxlength="20" size="110" class="case" />
 							</br>
 							<label>KM</label></br>
-							<input type="text" placeholder="KM" id="KM" name="KM" maxlength="20" size="110" class="case" />
+							<input type="number" placeholder="KM" id="KM" name="KM" maxlength="20" size="110" class="case" />
 							</br>
 							<label>Coût Péage</label></br>
-							<input type="text" placeholder="Cout Péage" id="cout_peage" name="cout_peage" maxlength="20" size="110" class="case" />
+							<input type="number" placeholder="Cout Péage" id="cout_peage" name="cout_peage" maxlength="20" size="110" class="case" />
 							</br>
 							<label>Coût Repas</label></br>
-							<input type="text" placeholder="cout_repas" id="cout_repas" name="cout_repas" maxlength="20" size="110" class="case" />
+							<input type="number" placeholder="cout_repas" id="cout_repas" name="cout_repas" maxlength="20" size="110" class="case" />
 							</br>
 							<label>Coût Hebergement</label></br>
-							<input type="text" placeholder="cout_hebergement" id="cout_hebergement" name="cout_hebergement" maxlength="20" size="110" class="case" />
+							<input type="number" placeholder="cout_hebergement" id="cout_hebergement" name="cout_hebergement" maxlength="20" size="110" class="case" />
 							</br>
 						      	
 						</fieldset>

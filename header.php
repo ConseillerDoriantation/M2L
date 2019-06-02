@@ -2,7 +2,7 @@
 <?php
 	require("connexionBddID.php");
 	session_start();
-	if ($_SESSION['ok'] != "oui" && basename($_SERVER['PHP_SELF']) != "index.php" && basename($_SERVER['PHP_SELF']) != "inscription.php"){
+	if (!isset($_SESSION['ok']) || ($_SESSION['ok'] != "oui" && basename($_SERVER['PHP_SELF']) != "index.php" && basename($_SERVER['PHP_SELF']) != "inscription.php")){
 		header('Location: index.php');
 	}
 ?>
@@ -19,11 +19,12 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <?php
-	if (basename($_SERVER['PHP_SELF']) != "index.php" && basename($_SERVER['PHP_SELF']) != "inscription.php")
+	print_r($_SESSION['ok']);
+	if (isset($_SESSION['ok']) && $_SESSION['ok'] = "oui" && basename($_SERVER['PHP_SELF']) != "index.php" && basename($_SERVER['PHP_SELF']) != "inscription.php")
 	{
 	?>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="demandeur.php">Accueil</a>
+		<a class="navbar-brand" href="accueil_demandeur.php">Accueil</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>

@@ -6,6 +6,7 @@ html, body{
 }
 body{
 	width:100%;
+	background-color: #1565c0;
 }
 /*				  FIN BODY 					 */
 /*///////////////////////////////////////////*/
@@ -29,82 +30,7 @@ body{
 /*///////////////////////////////////////////*/
 
 /*///////////////////////////////////////////*/
-/*				BANNIERE			   		 */
-/*			Bande De Navigation				 */
-.menu{		/*Barre de navigation*/
-	background: black;
-	width: 100%;
-	height: 66px;
-	line-height: 66px;
-	top:0;
-	z-index: 1; 
-}
-
-.m-left{	/*Place à gauche "SITE WEB"*/
-	float: left;
-}
-.m-right{	/*Place à droite les onglets de navigations*/ 
-	float: right;
-}
-
-.logo{		/*Mise en forme de "SITE WEB"*/
-	margin: 0;
-	padding: 0;
-	color: #fff;
-	text-transform: uppercase;
-	font-family: 'roboto';
-	font-weight: 900;
-	font-size: 35px;
-	letter-spacing: 1px;
-}
-
-.m-link{	/*Mise en forme des onglets de navigations*/
-	text-decoration: none;
-	color: #fff;
-	text-transform: uppercase;
-	font-weight: 700;
-	padding: 0;
-	margin: 0 15px;
-}
-
-.m-link:hover{	/*Mise en forme du lien hypertexte*/
-	border-top: 2px solid transparent;
-	border-color: #fff;
-}
-
-img {	/*Mise en forme du bouton de deconnexion (image)*/
-	margin-bottom : 7px;
-	width : 30px;
-	z-index : 91;
-	cursor : pointer;
-}
-
-/*			Fin Bande de Navigation			 */
-
-/*				FIN BANNIERE				 */
-/*///////////////////////////////////////////*/
-
-/*///////////////////////////////////////////*/
 /*				   PAGE INDEX				 */
-.accueil_profil{
-	background-color: #B3C8C6;
-	width:100%;
-	height:320px;
-	text-align: center;
-}
-
-.accueil_frais{
-	width:100%;
-	height:320px;
-	text-align: center;
-} 
-
-.accueil_listefrais{
-	background-color: #A6AFAE;
-	width:100%;
-	height:320px;
-	text-align: center;
-}
 
 .accueil_avalider{
 	background-color: #D5BF9E;
@@ -162,3 +88,44 @@ img {	/*Mise en forme du bouton de deconnexion (image)*/
 
 /*				   FIN FRAIS				 */
 /*///////////////////////////////////////////*/
+
+.img1{	/*Seulement les images du slider*/
+	width: 100%;
+	height: 350px;
+}
+
+.sliberbox{
+	background-color:#E1D2BE;
+	height:400px;
+}
+
+#slider{	/*mise en forme du Slider*/
+	top:20px;
+	width:70%;
+	margin: 0 auto;
+	position:relative;
+	box-shadow: 0px 0px 2px 2px #000;
+	z-index: 80;
+}
+
+.next, .prew{	/*Boutons pour changer d'image*/
+	width:12%;
+	height:100%;
+	position:absolute;
+	top:0;
+	background: rgba(255,165,0,.1);
+	z-index:99;
+	cursor:pointer;
+}
+.next:hover, .prew:hover{	/*souris sur Boutons pour changer d'image*/
+	background: rgba(255,165,0,.5);
+}
+
+.next{ /*Mise en forme Suivant*/
+	right: 0; 
+}
+
+.prew{	/*Mise en forme précédent*/
+	left:0;
+}
+/*				   Fin slider				 */

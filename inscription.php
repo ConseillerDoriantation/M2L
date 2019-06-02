@@ -106,6 +106,7 @@
 			} 
 		}
 		
+
 		// If same return True. 
 		alertPwd.style.display = 'none';
 		subbtn.classList.remove("disabled");
