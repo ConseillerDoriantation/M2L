@@ -16,24 +16,26 @@
 	$ligne = $test->fetch();
 	$VerifMdp = $ligne[0];
 	
+	// Incrémente le NUM_DEM
 	$sqlIncrementNum = ("SELECT MAX(NUM_DEM) FROM demandeurs");
 	$numId = $connexion->query($sqlIncrementNum) or die ("Erreur dans la requ&ecircte sql");
 	$ligne = $numId->fetch();
 	$numero = $ligne[0]+1;
 
+	// On vérifie que l'adresse n'existe pas dans la BDD
 	if ($Identifiant != $VerifMdp){
 
-		// On vérifie que l'adresse n'existe pas dans la BDD
-		$sql = ("SELECT COUNT(MAIL_DEM) as mail_exists FROM DEMANDEURS WHERE MAIL_DEM = '".$Identifiant."'");
+		$sql = ("SELECT COUNT(MAIL_DEM) as mail_exists FROM demandeurs WHERE MAIL_DEM = '".$Identifiant."'");
 		$result = $connexion->query($sql) or die ("Erreur dans la requ&ecircte sql");
 		$mailexists = $result->fetch();
+
+		// Si c'est >0, soit qu'il en existe un, on redirige à la page d'inscription avec un message d'erreur
 		if($mailexists['mail_exists'] > 0)
 		{
 			header('Location: inscription.php?msg=2 ');
 		}
-		else
+		else // Si elle n'existe pas, on enregistre les informations, on redirige à la page de connexion avec un message de succès
 		{
-			echo "samarch";
 			$reqSQL =$connexion->prepare('INSERT INTO demandeurs(MAIL_DEM, NOM_DEM, PRENOM_DEM, RUE_DEM, CP_DEM, VILLE_DEM, NUM_DEM, MDP_DEM) 
 				VALUES(:id, :nom, :pre, :rue, :cp, :ville, :num , :mdp)');
 			$reqSQL -> execute(array(
@@ -45,7 +47,6 @@
 				'ville' => $ville, 
 				'num' => $numero, 
 				'mdp' => $mdp));
-			echo "$Identifiant, $nom, $prenom, $rue, $cp, $ville, $numero, $mdp";
 			header('Location: index.php?msg=1');
 		}
 	}
