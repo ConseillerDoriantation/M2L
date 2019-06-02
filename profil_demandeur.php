@@ -28,31 +28,39 @@
 	$ville = $ligneNom[0];
 ?>
 
+<div id="wrapper">
+	<div class="row justify-content-center">
+		<div class="card col col-sm-10 col-md-6 col-lg-5" style="margin-top : 200px;">
+			<div class="card-body">
+				<form method="post" action="inscriptionBdd.php" name="inscription">
+					<div class = "form-row">
+						<label>Nom :</label>
+						<input type="text" placeholder="Nom" class="form-control" id="nom" class="case" readonly="readonly" Value="<?php echo $nom ?> " />
+					</div>
+					<div class = "form-row">
+						<label>Prenom :</label>
+						<input type="text" placeholder="Prenom" class="form-control" id="prenom" class="case" readonly="readonly" Value="<?php echo $prenom ?> " />
+					</div>
+					<div class = "form-row">
+						<label>Adresse :</label>
+						<input type="text" placeholder="Nom" class="form-control" id="adresse" class="case" readonly="readonly" Value="<?php echo $rue. " ". $cp. " ". $ville ?> " />
+					</div>
+					<div class = "form-row">
+						<label>Responsable des adhérents :</label>
+						<?php
+							    $query = "SELECT * FROM adherents A, lien L WHERE A.NUMERO_LICENCE = L.NUMERO_LICENCE AND MAIL_DEM ='".$_SESSION["connecte"]."'";
+            					$result=$connexion->query($query);
 
-<div class="FonddemandeurProfil">
-	</br>
-	<h5>Retrouvez ici vos informations personnelles</h5>
-	<div class="FormdemandeurProfil">
-		<table>
-		<tr>
-			<td><?php echo "Nom " ; ?></td>
-			<td><?php echo ":" ; ?></td>
-			<td><?php echo $nom; ?></td>
-		</tr>
-		<tr>
-			<td><?php echo "Prenom " ; ?></td>
-			<td><?php echo ":" ; ?></td>
-			<td><?php echo $prenom; ?></td>
-		</tr>
-		<tr>
-			<td><?php echo "Adresse " ; ?></td>
-			<td><?php echo ":" ; ?></td>
-			<td><?php echo $rue, " ", $cp, " ", $ville; ?></td>
-		</tr>
-		</table>
+            					while($row=$result->fetch())  
+						    	{ 
+									?>
+									<input type="text" placeholder="adherent" class="form-control" id="adherent" class="case" readonly="readonly" Value="<?php echo $row['NOM_ADH'].' '.$row["PRENOM_ADH"]?>">
+									<?php
+								}
+						?>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
-
-<?php
-	include("footer.html");
-?>
