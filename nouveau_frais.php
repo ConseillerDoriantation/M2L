@@ -2,7 +2,7 @@
 	include('header.php'); 	
 
 	//On récupère les informations de l'utilisateur connecté
-	$sql = ("SELECT NOM_DEM,PRENOM_DEM,RUE_DEM,CP_DEM,VILLE_DEM FROM DEMANDEURS WHERE MAIL_DEM = '".$_SESSION['connecte']."'");
+	$sql = ("SELECT NOM_DEM,PRENOM_DEM,RUE_DEM,CP_DEM,VILLE_DEM FROM demandeurs WHERE MAIL_DEM = '".$_SESSION['connecte']."'");
 	$result = $connexion->query($sql) or die ("Erreur dans la requ&ecircte sql");
 	$ligne = $result->fetch();
 	$nom = $ligne[0];
@@ -12,78 +12,91 @@
 	$ville = $ligne[4];
 ?>
 
-<!-- Affichage de la bannière -->
-	<div class="formulaire"> 
+<div id="wrapper">
+	<div class="row justify-content-center">
+		<div class="card col col-sm-10 col-md-6 col-lg-5" style="margin-top : 200px;">
+			<!-- Card -->
+			<div class="card-body">
+				<h4 class="card-title mb-4">Nouvelle ligne de frais</h4>
 
-		<table class="form">
-			<tr>
-				<td>	<!--REDIRIGIRE VERS UNE PAGE QUI ENREGISTRER LES INFORMATIONS SAISIES-->
-					<form name="inscription" action="nouveau_frais_enregistrement.php" method ="post" onsubmit="javascript: return verifSaisie();">
-					</br></br>
+				<!-- Formulaire -->
+				<div class="inscriptionForm">
+					<form method="post" action="pdf_frais_enregistrement.php" action="nouveau_frais_enregistrement.php" method ="post" name="pdf_frais_enregistrement">
+						<div class="form-row">
+							<label>Je soussigné(e)</label>
+							<input type="text" class="form-control" id="nom" name="nom" readonly="readonly" Value="<?php echo $nom.' '. $prenom ?> " >
+						</div>
+						<div class="form-row">
+							<label>Demeurant</label>
+							<input type="text" class="form-control" id="adresse" name="adresse" readonly="readonly" Value="<?php echo $rue.', '. $cp.' '.$ville ?> " />
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label>Date</label>
+								<input type="date" class="form-control" id="date" name="date">
+							</div>
+						</div>
 
-						<fieldset class="separateur"><legend class="legende">Nouvelle note de frais</legend>
-							</br></br></br>
-						    <label>Je soussigné(e)</label>
-						    </br>
-						    <input type="text" placeholder="Nom"   id="email" name="email" maxlength="60" size="110" class="case" readonly="readonly" Value="<?php echo $nom.' '. $prenom ?> " />		
-						    </br>
-						    <label>demeurant</label>
-							</br>
-						    <input type="text" placeholder="ex: 12 rue de Marron, 54600 Villers lès Nancy" id="ville" name="ville" maxlength="60" size="110" class="case" readonly="readonly" Value="<?php echo $rue.', '. $cp.' '.$ville ?> " />
-						    </br>	
-						    <label>certifie renoncer au remboursement des frais ci-dessous et les laisser à l'association en tant que don.
-						    </label>
-							</br></br></br>
-
-							<!-- Informations liées à la table lignes_frais-->
-							<label>Date</label></br>
-							<input type="date" placeholder="date" id="date" name="date" maxlength="20" size="110" class="case" />
-							</br>
-							<label>Motif</label></br>
-
-							<select name="motif" id="motif">
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<label>Motif</label>
+								<select name="motif" id="motif">
 							 
-							<?php
-							 
-							$reponse = $connexion->query('SELECT libelle FROM motifs');
-							$i = 1;
-							while ($donnees = $reponse->fetch())
-							{
-					           echo '<option id="list_id'.$i.'" value="'.$i.'">'.$donnees["libelle"].'</option>';
+								<?php
+								$reponse = $connexion->query('SELECT libelle FROM motifs');
+								$i = 1;
+								while ($donnees = $reponse->fetch())
+								{
+								echo '<option id="list_id'.$i.'" value="'.$i.'">'.$donnees["libelle"].'</option>';
 
-								$i++;
-							}
-							?>
-							</select>
+									$i++;
+								}
+								?>
+								</select>
+							</div>
+						</div>
 
+						<div class="form-row">
+							<div class="form-group col-md-8">
+								<label>Trajet</label>
+								<input type="text" class="form-control" id="trajet" name="trajet" required>
+							</div>
+							<div class="form-group col-md-4">
+								<label>Kms</label>
+								<input type="number" class="form-control" id="km" name="km">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label>Coûts</label>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<label>Péage</label>
+								<input type="number" class="form-control" id="cout_peage" name="cout_peage" required>
+							</div>
+							<div class="form-group col-md-3">
+								<label>Repas</label>
+								<input type="number" class="form-control" id="cout_repas" name="cout_repas">
+							</div>
+							<div class="form-group col-md-3">
+								<label>Hebergement</label>
+								<input type="number" class="form-control" id="cout_hebergement" name="cout_hebergement">
+							</div>
+						</div>
 
-							</br>
-							<label>Trajet</label>
-							</br>
-							<input type="text" placeholder="Trajet " id="trajet" name="trajet" maxlength="20" size="110" class="case" />
-							</br>
-							<label>KM</label></br>
-							<input type="number" placeholder="KM" id="KM" name="KM" maxlength="20" size="110" class="case" />
-							</br>
-							<label>Coût Péage</label></br>
-							<input type="number" placeholder="Cout Péage" id="cout_peage" name="cout_peage" maxlength="20" size="110" class="case" />
-							</br>
-							<label>Coût Repas</label></br>
-							<input type="number" placeholder="cout_repas" id="cout_repas" name="cout_repas" maxlength="20" size="110" class="case" />
-							</br>
-							<label>Coût Hebergement</label></br>
-							<input type="number" placeholder="cout_hebergement" id="cout_hebergement" name="cout_hebergement" maxlength="20" size="110" class="case" />
-							</br>
-						      	
-						</fieldset>
+							<!-- Boutons -->
+						<input class="btn btn-info" type="submit" id="envoie" name="boutonValider" value="Envoyer" />
+			      <input class="mr-5 btn btn-danger" type="reset" id="annule" name="boutonAnnuler" value="Annuler" />
+						<a class="btn btn-success" href="accueil_demandeur.php">Retour</a>
 
-			  			<input class="btnvalid" type="submit" id="envoie" name="boutonValider" value="Envoyer" />
-			         	<input class="btnvalid" type="reset" id="annule" name="boutonAnnuler" value="Annuler" />
-			         	<a class="btnvalid" href="javascript:history.go(-1)">Retour</a>
 					</form>
-				</td>
-			</tr>
-		</table>
+				</div> <!-- fin formulaire -->
+			</div><!-- Fin Card -->
+		</div>
 	</div>
+</div> <!-- end wrapper -->
+
 </body>
 </html>
