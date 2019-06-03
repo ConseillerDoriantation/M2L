@@ -20,7 +20,7 @@
 
 				<!-- Formulaire -->
 				<div class="inscriptionForm">
-					<form method="post" action="inscriptionBdd.php" name="inscription">
+					<form method="post" action="pdf_frais_enregistrement.php" name="pdf_frais_enregistrement">
 						<div class="form-row">
 							<label>Je soussigné(e)</label>
 							<input type="text" class="form-control" id="nom" name="nom" readonly="readonly" Value="<?php echo $nom.' '. $prenom ?> " >
