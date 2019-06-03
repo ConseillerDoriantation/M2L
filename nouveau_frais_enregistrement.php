@@ -2,7 +2,7 @@
 	include('header.php');
 
 	//Recuperer les valeurs du formulaire
-	$sql = ("SELECT MAIL_DEM FROM DEMANDEURS WHERE MAIL_DEM = '".$_SESSION['connecte']."'");
+	$sql = ("SELECT MAIL_DEM FROM demandeurs WHERE MAIL_DEM = '".$_SESSION['connecte']."'");
 	$result = $connexion->query($sql) or die ("Erreur dans la requ&ecircte sql");
 	$ligne = $result->fetch();
 	$email = $ligne[0];
