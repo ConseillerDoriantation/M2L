@@ -28,70 +28,50 @@ include('header.php');
 
             
 ?>
-        <!--Affiche les produits-->
-        <br />   
-        <h3 align="center" >Vos Frais</h3><br />  
-        <?php  
+<div id="wrapper">
+	<div class="row justify-content-center">
+		<div class="card col col-sm-10 col-md-6 col-lg-5" style="margin-top : 200px;">
+			<!-- Card -->
+			<div class="card-body">
+				<h4 class="card-title mb-4">Vos ligne de frais</h4>
+                    <!-- Formulaire -->
 
-            $query = 'SELECT * FROM lignes_frais  ORDER BY ADRESSE_MAIL DESC LIMIT '.$premiereEntree.', '.$messagesParPage.''; 
-            $result=$connexion->query($query);        
-?>
+                            
+                                    <?php  
 
-    <table class="srctable" align="center">   
-        <tr class="srctr">
-            <th class="thprod"  rowspan=2>Adresse Mail</th>
-            <th class="thprod"  rowspan=2>Date</th>
-            <th class="thprod"  rowspan=2>Type Motif</th>
-            <th class="thprod"  rowspan=2>Trajet</th>
-            <th class="thprod"  rowspan=2>KM</th>
-            <th class="thprod"  colspan=3> Coût</th>
-            
-        </tr><br>
-
-        <tr>
-            <th>Péage</th>
-            <th>Repas</th>
-            <th>Hebergement</th>
-
-        </tr>
-    <?php
-        while($row=$result->fetch())  
-        {  
-    ?>  
-            <form method="post" action="<modifie_frais.php">  
-                          
-                <td class="tdprod"><strong><?php echo $row['ADRESSE_MAIL'] ?></strong></td>
-                <td class="tdprod"><?php echo $row["DATEFRAIS"]; ?></td> 
-                <td class="tdprod"><?php echo $row['TYPE_MOTIF']?></td>
-                <td class="tdprod"><?php echo $row['TRAJET']?></td>
-                <td class="tdprod"><?php echo $row['KM']?></td>
-                <td class="tdprod"><?php echo $row['COUT_PEAGE']?></td>
-                <td class="tdprod"><?php echo $row['COUT_REPAS']?></td>
-                <td class="tdprod"><?php echo $row['COUT_HEBERGEMENT']?></td>
-
-            </form>
-        </tr>
-    </table>
-
-    <?php  
-        }
-
-        //Permet l'utilisation des pages       
-        echo '<p align="center">Page : '; //Pour l'affichage, on centre la liste des pages
-        for($i=1; $i<=$nombreDePages; $i++) //On fait notre boucle
-        {
-            //On va faire notre condition
-            if($i==$pageActuelle) //Si il s'agit de la page actuelle...
-            {
-                echo ' [ '.$i.' ] '; 
-            } 
-            else //Sinon...
-            {
-                echo ' <a href="produits.php?page='.$i.'">'.$i.'</a> ';
-            }
-        }
-        echo '</p>';            
-    ?>  
-                   
+                                        $query = "SELECT * FROM lignes_frais WHERE ADRESSE_MAIL = '".$_SESSION['connecte']."' ORDER BY ADRESSE_MAIL DESC LIMIT ".$premiereEntree.", ".$messagesParPage.""; 
+                                        $result=$connexion->query($query);       
+                                        
+                                        while($row=$result->fetch())  
+                                        { 
+                                        ?>
+                                     
+                                            <input type="text" class="form-control" id="adherent" readonly="readonly" Value="<?php echo $row['DATEFRAIS'].' '.$row['TYPE_MOTIF'].' '.$row['KM'].' '.$row['COUT_PEAGE'].' '.$row['COUT_REPAS'].' '.$row['COUT_HEBERGEMENT'] ?>">
+                                       
+                                        <?php
+                                        }
+                                        //Permet l'utilisation des pages       
+                                        echo '<p align="center">Page : '; //Pour l'affichage, on centre la liste des pages
+                                        for($i=1; $i<=$nombreDePages; $i++) //On fait notre boucle
+                                        {
+                                            //On va faire notre condition
+                                            if($i==$pageActuelle) //Si il s'agit de la page actuelle...
+                                            {
+                                                echo ' [ '.$i.' ] '; 
+                                            } 
+                                            else //Sinon...
+                                            {
+                                                echo ' <a href="produits.php?page='.$i.'">'.$i.'</a> ';
+                                            }
+                                        }
+                                        echo '</p>';            
+                                    ?>        
+                 
+                </div>
+			</div><!-- Fin Card -->
+		</div>
+	</div>
+</div> <!-- end wrapper -->
+           
 </body>
 </html>
