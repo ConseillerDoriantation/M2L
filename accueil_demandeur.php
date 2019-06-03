@@ -10,7 +10,24 @@
 	<div class="row justify-content-center" id="logo">
 		<img src="images/logo.png"/>
 	</div>
-
+	<?php
+		if (isset ($_GET['msg']))
+		{
+			if($_GET['msg']==1)
+			{
+	?>
+			<!-- Alerte en cas de création de compte -->
+			<div class="alert alert-success" role="alert" id="alertsuccess" >La ligne de frais a été enregistré !</div>
+	<?php
+			}
+			if($_GET['msg']==2)
+			{
+				?>
+					<div class="alert alert-success" role="alert" id="alertsuccess" >Votre demande de frais a été enregistré !</div>
+				<?php
+			}
+		}
+	?>
 <!-- slider -->
 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
 	<div class="carousel-inner">
@@ -41,7 +58,7 @@
 				<img src="images/liste_frais.jpeg" class="card-img">
 				<div class="card-body">
 					<h5 class="card-title">Liste des frais</h5>
-					<a href="liste_frais.php" class="btn btn-primary">Go somewhere</a>
+					<a href="liste_frais.php" class="btn btn-primary">Accéder à la page</a>
 				</div>
 			</div>
 		</div>
@@ -50,7 +67,7 @@
 				<img src="images/nouveau_frais.jpeg" class="card-img">
 				<div class="card-body">
 					<h5 class="card-title">Nouvelle ligne de frais</h5>
-					<a href="nouveau_frais.php" class="btn btn-primary">Go somewhere</a>
+					<a href="nouveau_frais.php" class="btn btn-primary">Accéder à la page</a>
 				</div>
 			</div>
 		</div>
@@ -59,7 +76,7 @@
 				<img src="images/frais_pdf.jpeg" class="card-img">
 				<div class="card-body">
 					<h5 class="card-title">Demande de frais</h5>
-					<a href="pdf_frais.php" class="btn btn-primary">Go somewhere</a>
+					<a href="pdf_frais.php" class="btn btn-primary">Accéder à la page</a>
 				</div>
 			</div>
 		</div>
