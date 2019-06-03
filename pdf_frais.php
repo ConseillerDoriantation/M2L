@@ -2,7 +2,7 @@
 	include('header.php'); //Affichage de la bannière
 
 	//On récupère les informations de l'utilisateur connecté
-	$sql = ("SELECT NOM_DEM,PRENOM_DEM,RUE_DEM,CP_DEM,VILLE_DEM FROM DEMANDEURS WHERE MAIL_DEM = '".$_SESSION['connecte']."'");
+	$sql = ("SELECT NOM_DEM,PRENOM_DEM,RUE_DEM,CP_DEM,VILLE_DEM FROM demandeurs WHERE MAIL_DEM = '".$_SESSION['connecte']."'");
 	$result = $connexion->query($sql) or die ("Erreur dans la requ&ecircte sql");
 	$ligne = $result->fetch();
 	$nom = $ligne[0];
