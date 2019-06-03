@@ -21,7 +21,7 @@
 
 				<!-- Formulaire -->
 				<div class="inscriptionForm">
-					<form method="post" action="pdf_frais_enregistrement.php" action="nouveau_frais_enregistrement.php" method ="post" name="pdf_frais_enregistrement">
+					<form method="post" action="nouveau_frais_enregistrement.php" action="nouveau_frais_enregistrement.php" method ="post" name="pdf_frais_enregistrement">
 						<div class="form-row">
 							<label>Je soussigné(e)</label>
 							<input type="text" class="form-control" id="nom" name="nom" readonly="readonly" Value="<?php echo $nom.' '. $prenom ?> " >
@@ -63,7 +63,7 @@
 							</div>
 							<div class="form-group col-md-4">
 								<label>Kms</label>
-								<input type="number" class="form-control" id="km" name="km">
+								<input type="number" class="form-control" id="KM" name="KM">
 							</div>
 						</div>
 						<div class="form-row">
