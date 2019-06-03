@@ -63,7 +63,7 @@
 							</div>
 							<div class="form-group col-md-4">
 								<label>Kms</label>
-								<input type="number" class="form-control" id="KM" name="KM" required>
+								<input type="number" min="0" class="form-control" id="KM" name="KM" required>
 							</div>
 						</div>
 						<div class="form-row">
@@ -74,15 +74,15 @@
 						<div class="form-row">
 							<div class="form-group col-md-3">
 								<label>Péage</label>
-								<input type="number" class="form-control" id="cout_peage" name="cout_peage" required>
+								<input type="number" min="0" class="form-control" id="cout_peage" name="cout_peage" required>
 							</div>
 							<div class="form-group col-md-3">
 								<label>Repas</label>
-								<input type="number" class="form-control" id="cout_repas" name="cout_repas" required>
+								<input type="number" min="0" class="form-control" id="cout_repas" name="cout_repas" required>
 							</div>
 							<div class="form-group col-md-3">
 								<label>Hebergement</label>
-								<input type="number" class="form-control" id="cout_hebergement" name="cout_hebergement" required>
+								<input type="number" min="0" class="form-control" id="cout_hebergement" name="cout_hebergement" required>
 							</div>
 						</div>
 
