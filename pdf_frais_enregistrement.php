@@ -22,5 +22,5 @@
 		'montantdon' => $montantdon
 		));
 
-	header('Location: accueil_demandeur.php');
+	header('Location: accueil_demandeur.php?msg=2');
 ?>
