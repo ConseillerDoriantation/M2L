@@ -33,7 +33,7 @@
 						<div class="form-row">
 							<div class="form-group col-md-4">
 								<label>Date</label>
-								<input type="date" class="form-control" id="date" name="date">
+								<input type="date" class="form-control" id="date" name="date" min="2018-01-01" required>
 							</div>
 						</div>
 
@@ -63,7 +63,7 @@
 							</div>
 							<div class="form-group col-md-4">
 								<label>Kms</label>
-								<input type="number" class="form-control" id="KM" name="KM">
+								<input type="number" class="form-control" id="KM" name="KM" required>
 							</div>
 						</div>
 						<div class="form-row">
@@ -78,17 +78,17 @@
 							</div>
 							<div class="form-group col-md-3">
 								<label>Repas</label>
-								<input type="number" class="form-control" id="cout_repas" name="cout_repas">
+								<input type="number" class="form-control" id="cout_repas" name="cout_repas" required>
 							</div>
 							<div class="form-group col-md-3">
 								<label>Hebergement</label>
-								<input type="number" class="form-control" id="cout_hebergement" name="cout_hebergement">
+								<input type="number" class="form-control" id="cout_hebergement" name="cout_hebergement" required>
 							</div>
 						</div>
 
 							<!-- Boutons -->
 						<input class="btn btn-info" type="submit" id="envoie" name="boutonValider" value="Envoyer" />
-			      <input class="mr-5 btn btn-danger" type="reset" id="annule" name="boutonAnnuler" value="Annuler" />
+			      		<input class="mr-5 btn btn-danger" type="reset" id="annule" name="boutonAnnuler" value="Annuler" />
 						<a class="btn btn-success" href="accueil_demandeur.php">Retour</a>
 
 					</form>
