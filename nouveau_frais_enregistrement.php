@@ -29,5 +29,5 @@
 		'cout_hebergement' => $cout_hebergement
 		));
 
-    header('Location: accueil_demandeur.php');
+    header('Location: accueil_demandeur.php?msg=1');
 ?>
