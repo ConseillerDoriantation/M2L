@@ -11,58 +11,39 @@
 	$cp= $ligne[3];
 	$ville = $ligne[4];
 ?>
-	</br>
-	</br>	
+<div id="wrapper">
+	<div class="row justify-content-center">
+		<div class="card col col-sm-10 col-md-6 col-lg-5" style="margin-top : 200px;">
+			<!-- Card -->
+			<div class="card-body">
+				<h4 class="card-title mb-4">Demande de frais</h4>
 
-	<div class="formulaire" id="form_to_print"> 
-
-		<table class="form" border="none" id="table_print">
-			<tr>
-				<td>
-
-					<!--Formulaire d'impression PDF-->
-					<form name="inscription" action="pdf_frais_enregistrement.php" method ="post" onsubmit="javascript: return verifSaisie();">
-					</br></br>
-						<fieldset class="separateur"><legend class="legende">Note de frais des b&eacuten&eacutevoles</legend>
-
-							</br></br></br>
-
-						    <label>Je soussign&eacute(e)</label>
-						    </br>
-						    <input type="text" placeholder="Nom"   id="nom" name="nom" maxlength="20" size="90" class="case"readonly="readonly" Value="<?php echo $nom.' '. $prenom ?> " />		
-						    </br>
-						    <label>demeurant</label>
-							</br>
-						    <input type="text" placeholder="rue, cp ville" id="ville" name="ville" maxlength="20" size="90" class="case" readonly="readonly" Value="<?php echo $rue.', '. $cp.' '.$ville ?> " />
-						    </br>	
-						    <label>certifie renoncer au remboursement des frais ci-dessous et les laisser à l'association en tant que don.</label>
-							</br></br></br>
-							
-							<label>Frais d&eacuteplacement</label>
-
-							<!--Tableau des lignes de frais-->
-							<div style="clear:both"></div>  
+				<!-- Formulaire -->
+				<div class="inscriptionForm">
+					<form method="post" action="inscriptionBdd.php" name="inscription">
+						<div class="form-row">
+							<label>Je soussigné(e)</label>
+							<input type="text" class="form-control" id="nom" name="nom" readonly="readonly" Value="<?php echo $nom.' '. $prenom ?> " >
+						</div>
+						<div class="form-row">
+							<label>Demeurant</label>
+							<input type="text" class="form-control" id="adresse" name="adresse" readonly="readonly" Value="<?php echo $rue.', '. $cp.' '.$ville ?> " />
+						</div>
+						
+						<!--Tableau des lignes de frais-->
+						<div style="clear:both"></div>  
 						    <br />   
 						    <div class="table-responsive">  
 						      	<table class="table_bordered">  
-						      		<colgroup width="30%"></colgroup>
-						      		<colgroup width="10%"></colgroup>
-						      		<colgroup width="20%"></colgroup>
-						      		<colgroup width="10%"></colgroup>
-						      		<colgroup width="10%"></colgroup>
-						      		<colgroup width="5%"></colgroup>
-						      		<colgroup width="5%"></colgroup>
-						      		<colgroup width="5%"></colgroup>
-						      		<colgroup width="5%"></colgroup>
 							        <tr>
-							            <th>Date aaaa-mm-jj</th>
+							            <th>Date</th>
 							            <th>Motif</th>
 							            <th>Trajet</th>
-							            <th>Kms parcourus</th>
-							            <th>Co&ucirct Trajet</th>
-							            <th>p&eacuteages</th>
+							            <th>Km</th>
+							            <th>Trajet</th>
+							            <th>péages</th>
 							            <th>Repas</th>
-							            <th>H&eacutebergement</th>
+							            <th>Héberg.</th>
 							            <th >Total</th>
 							        </tr>
 
@@ -109,54 +90,56 @@
 							        </tr>   
 							    </table>  
 						    </div> 
-							</br>
 
-
-					    	<label>Je suis le representant l&eacutegal des adh&eacuterents suivants: </abel>
-					    	</br>
+					    	<label>Je suis le representant l&eacutegal des adh&eacuterents suivants: </label>
 					    	<div style="background-color:#94DB70;" align="center">
 						    <?php
 
-						    	//R&eacutecupère les adh&eacuterents li&eacutes au demandeur
-							    $query = "SELECT * FROM ADHERENTS A, LIEN L WHERE A.NUMERO_LICENCE = L.NUMERO_LICENCE AND MAIL_DEM ='".$_SESSION["connecte"]."'";
+						    	//Réecupère les adhérents liés au demandeur
+							    $query = "SELECT * FROM adherents A, lien L WHERE A.NUMERO_LICENCE = L.NUMERO_LICENCE AND MAIL_DEM ='".$_SESSION["connecte"]."'";
             					$result=$connexion->query($query);
 
             					while($row=$result->fetch())  
 						    	{ 
             				?>
-							    	<?php echo $row["NOM_ADH"]; ?>
-							    	<?php echo $row["PRENOM_ADH"]; ?>, Licence n°
-							    	<?php echo $row["NUMERO_LICENCE"]; ?>
-							    </br>
+													<input type="text" class="form-control" id="adresse" name="adresse" readonly="readonly" Value="<?php echo $row["NOM_ADH"].', '. $row["PRENOM_ADH"].' '.$row["NUMERO_LICENCE"] ?> " />
+
+
 							<?php
 							}
 							?>
 							</div>
+							
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<label>Montant des dons</label>
+								<input type="number" class="form-control" id="montantdon" name="montantdon" required>
+							</div>
+						</div>
 
-						    </br>
-						    <label>Montant des dons</label> <!-- Mets la valeur du don souhait&eacute, mais ne doit aps exceder le total-->
-					    	<input type="text" id="montantdon" name="montantdon" maxlength="20" size="20" style="background-color:lightblue;"/>
-						    </br>
-						    <label>Pour b&eacuten&eacuteficier du reçu de dons, cette note de frais doit être accompagn&eacute de toutes les justificatifs correspondants</label>
-							</br>
+						<div class="form-row">
+							<div class="form-group col-md-8">
+								<label>A</label>
+								<input type="text" class="form-control" id="ville" name="ville" placeholder="Ville" required>
+							</div>
+							<div class="form-group col-md-4">
+								<label>le</label>
+								<input type="date" class="form-control" id="date" name="date">
+							</div>
+						</div>
 
-							<label>A </label>
-							<input type="text" id="lieu" name="lieu" maxlength="20" size="20" class="case"/>
-							<label> Le </label>
-							<input type="date" placeholder="date" id="date" name="date" maxlength="20" size="110" class="case" />
-							</br>
-						</fieldset>
-
-						<a href="javascript:window.print()"><img src="../../images/click-here-to-print.jpg" alt="print this page" id="print-button" /></a>
-						<input class="btnvalid" type="submit" id="envoie" name="boutonValider" value="Envoyer" />
-			         	<input class="btnvalid" type="reset" id="annule" name="boutonAnnuler" value="Annuler" />
-			         	<a class="btnvalid" href="javascript:history.go(-1)">Retour</a>
+							<!-- Boutons -->
+						<input class="btn btn-info" type="submit" id="envoie" name="boutonValider" value="Envoyer" />
+			      <input class="mr-5 btn btn-danger" type="reset" id="annule" name="boutonAnnuler" value="Annuler" />
+						<a class="btn btn-warning" href="javascript:window.print()">Imprimer</a>
+						<a class="btn btn-success" href="accueil_demandeur.php">Retour</a>
 
 					</form>
-				</td>
-			</tr>
-		</table>
+				</div> <!-- fin formulaire -->
+			</div><!-- Fin Card -->
+		</div>
 	</div>
+</div> <!-- end wrapper -->
 
 <!-- Impression de la page en pdf -->
 <script src="~/js/jspdf.js"></script>
