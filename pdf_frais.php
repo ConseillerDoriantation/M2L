@@ -70,7 +70,7 @@
 						            <td style="background-color:#94DB70;"><?php echo $row["KM"]; ?></td>
 						            <?php $cout_trajet = $row["KM"] * 0.28 ?>
 						            <td style="background-color:lightblue;"><?php echo number_format($cout_trajet, 2); ?></td>
-						            <td style="background-color:#94DB70;"><?php echo $row["COUT_PEAGE"]; ?></td> <!--METTRE LES VALIDES-->
+						            <td style="background-color:#94DB70;"><?php echo $row["COUT_PEAGE"]; ?></td>
 						            <td style="background-color:#94DB70;"><?php echo $row["COUT_REPAS"]; ?></td>
 						            <td style="background-color:#94DB70;"><?php echo $row["COUT_HEBERGEMENT"]; ?></td>
 						            <?php $total_ligne = $row["COUT_PEAGE"] +  $row["COUT_REPAS"] + $row["COUT_HEBERGEMENT"] + $cout_trajet?>
@@ -104,7 +104,6 @@
             				?>
 													<input type="text" class="form-control" id="adresse" name="adresse" readonly="readonly" Value="<?php echo $row["NOM_ADH"].', '. $row["PRENOM_ADH"].' '.$row["NUMERO_LICENCE"] ?> " />
 
-
 							<?php
 							}
 							?>
@@ -113,7 +112,7 @@
 						<div class="form-row">
 							<div class="form-group col-md-3">
 								<label>Montant des dons</label>
-								<input type="number" class="form-control" id="montantdon" name="montantdon" required>
+								<input type="number" min="0" max="<?php echo number_format($total, 2); ?>" class="form-control" id="montantdon" name="montantdon" required>
 							</div>
 						</div>
 
@@ -124,7 +123,7 @@
 							</div>
 							<div class="form-group col-md-4">
 								<label>le</label>
-								<input type="date" class="form-control" id="date" name="date">
+								<input type="date" min="2018-01-01" class="form-control" id="date" name="date" required>
 							</div>
 						</div>
 
